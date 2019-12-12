@@ -19,6 +19,10 @@ config/name="OpenSphere"
 run/main_scene="res://WorldTemplate.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=800
+
 [input]
 
 ui_left={

@@ -7,9 +7,9 @@ extends KinematicBody2D
 const UP = Vector2(0, -1)
 
 #constants for things like movement speed, gravity, jump height, etc.
-const SPEED = 250
-const GRAVITY = 15
-const JUMP_HEIGHT = -600
+const SPEED = 400
+const GRAVITY = 20
+const JUMP_HEIGHT = -700
 
 #variable to determine if player released jump button already to stop jumping
 #turns to true so you can't do it more than once mid-air and cheat the game
