@@ -1,178 +1,39 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://music/cloud.ogg" type="AudioStream" id=1]
-[ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=2]
-[ext_resource path="res://sprites/ballsprite.png" type="Texture" id=3]
-[ext_resource path="res://sprites/ballrollsprite.png" type="Texture" id=4]
-[ext_resource path="res://scripts/RotatingSprite.gd" type="Script" id=5]
-[ext_resource path="res://sprites/wallsprite.png" type="Texture" id=6]
-[ext_resource path="res://scripts/DeathFloor.gd" type="Script" id=7]
-[ext_resource path="res://sprites/rainbowfloorsprite.png" type="Texture" id=8]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 32.0
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 32, 32 )
+[ext_resource path="res://levels/cloud/cloudbackground.jpg" type="Texture" id=1]
+[ext_resource path="res://levels/template/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/template/Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/template/SideBorder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/template/CeilingBorder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/template/DeathFloor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/template/FinishObject.tscn" type="PackedScene" id=7]
+[ext_resource path="res://music/cloud.ogg" type="AudioStream" id=8]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.835294, 0.835294, 0.835294, 1 )
+position = Vector2( 531.269, -279.615 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 719.67, 219.961 )
+
+[node name="Platform" parent="." instance=ExtResource( 3 )]
+
+[node name="SideBorder" parent="." instance=ExtResource( 4 )]
+
+[node name="SideBorder2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1502.33, -32 )
+
+[node name="CeilingBorder" parent="." instance=ExtResource( 5 )]
+
+[node name="DeathFloor" parent="." instance=ExtResource( 6 )]
+
+[node name="FinishObject" parent="." instance=ExtResource( 7 )]
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource( 8 )
 autoplay = true
 mix_target = 2
-
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 480, 192 )
-scale = Vector2( 0.6, 0.6 )
-script = ExtResource( 2 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 6.10352e-05, 0 )
-scale = Vector2( 1.66667, 1.66667 )
-current = true
-zoom = Vector2( 1.5, 1.5 )
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
-smoothing_speed = 30.0
-
-[node name="BallSprite" type="Sprite" parent="Player"]
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="RotatingSprite" type="Sprite" parent="Player/BallSprite"]
-texture = ExtResource( 4 )
-script = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-scale = Vector2( 1.5, 1.5 )
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="TestPlatform" type="StaticBody2D" parent="."]
-position = Vector2( 480, 352 )
-scale = Vector2( 15, 0.6 )
-
-[node name="Sprite" type="Sprite" parent="TestPlatform"]
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform"]
-shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="TestPlatform2" type="StaticBody2D" parent="."]
-position = Vector2( -128, 172.8 )
-scale = Vector2( 10, 0.6 )
-
-[node name="Sprite" type="Sprite" parent="TestPlatform2"]
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform2"]
-shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="TestPlatform3" type="StaticBody2D" parent="."]
-position = Vector2( 992, 0 )
-scale = Vector2( 10, 0.6 )
-
-[node name="Sprite" type="Sprite" parent="TestPlatform3"]
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestPlatform3"]
-shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SideWall" type="StaticBody2D" parent="."]
-position = Vector2( -480, -32 )
-scale = Vector2( 1, 20 )
-
-[node name="Sprite" type="Sprite" parent="SideWall"]
-position = Vector2( 3.05176e-05, 0 )
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideWall"]
-shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SideWall2" type="StaticBody2D" parent="."]
-position = Vector2( 1504, -32 )
-scale = Vector2( 1, 20 )
-
-[node name="Sprite" type="Sprite" parent="SideWall2"]
-position = Vector2( 3.05176e-05, 0 )
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideWall2"]
-shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="SideWall3" type="StaticBody2D" parent="."]
-position = Vector2( 512, -640 )
-scale = Vector2( 30, 1 )
-
-[node name="Sprite" type="Sprite" parent="SideWall3"]
-position = Vector2( 3.05176e-05, 0 )
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SideWall3"]
-shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 512, 576 )
-scale = Vector2( 29.88, 1 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite2" type="Sprite" parent="Area2D"]
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
