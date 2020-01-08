@@ -8,4 +8,4 @@ func _physics_process(delta):
 	var rotation_dir = 0
 	velocity = Vector2()
 	rotation_dir += 1
-	rotation += rotation_dir * 10 * delta
+	rotation += rotation_dir * 8 * delta
