@@ -1,5 +1,7 @@
 extends Area2D
 
-#when any physics body touches the finish line it makes the player win
+#when player body touches the finish line it makes the player win
+#supposed to move to next level in sequence
 func _on_FinishObject_body_entered(body):
-	print("PLAYER HAS TOUCHED FINISH")
+	if body.get_name() == "Player":
+		get_tree().reload_current_scene()

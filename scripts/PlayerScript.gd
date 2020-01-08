@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 #TUTORIAL USED FOR THIS: https://www.youtube.com/watch?v=wETY5_9kFtA&list=PL9FzW-m48fn2jlBu_0DRh7PvAt-GULEmd
 
+#makes a variable for player node path so other objects can access easily
+export(NodePath) var player_node_path
+
 #declares what the UP direction is for functions later on related to touching the floor
 #this pretty much just declares that our game is a platformer and not a top-down game
 const UP = Vector2(0, -1)
@@ -24,7 +27,7 @@ var movingAlready = false
 #access with motion.x and motion.y
 var motion = Vector2()
 
-func get_input():
+func _get_input():
 	#close game if escape/cancel key pressed
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
@@ -36,7 +39,7 @@ func get_input():
 
 	#sets motion based on actions defined in Project>Project Settings>Input Map
 	#this allows you to easily map it to other things like gamepads or touchscreens
-	#these MUST be exclusive, or else pressing both at the same time makes weird stuff happen
+	
 	if Input.is_action_pressed("ball_move_right") && !(Input.is_action_pressed("ball_move_left")):
 		motion.x = SPEED
 	elif Input.is_action_pressed("ball_move_left") && !(Input.is_action_pressed("ball_move_right")):
@@ -49,7 +52,7 @@ func get_input():
 	#this is done so player can make short jumps, but not cheat and float or double jump or any shit
 	if Input.is_action_just_released("ball_jump"):
 		if motion.y < 0 && releasedJumpAlready == false:
-			motion.y = 0
+			motion.y = -1
 			releasedJumpAlready = true
 
 	#inherited from KinBody2D that actually processes the motion we're setting with the keys above
@@ -75,6 +78,6 @@ func calc_gravity():
 
 #function for movement of ball sprite that is updated every frame (delta)
 func _physics_process(delta):
-	get_input()
+	_get_input()
 	calc_gravity()
 

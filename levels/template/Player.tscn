@@ -12,6 +12,9 @@ radius = 32.0
 position = Vector2( 480, 192 )
 scale = Vector2( 0.6, 0.6 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 6.10352e-05, 0 )
@@ -33,7 +36,7 @@ __meta__ = {
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 __meta__ = {

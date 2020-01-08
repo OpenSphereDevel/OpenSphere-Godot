@@ -1,15 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/cloud/cloudbackground.jpg" type="Texture" id=1]
 [ext_resource path="res://levels/template/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/template/Platform.tscn" type="PackedScene" id=3]
-[ext_resource path="res://levels/template/SideBorder.tscn" type="PackedScene" id=4]
-[ext_resource path="res://levels/template/CeilingBorder.tscn" type="PackedScene" id=5]
-[ext_resource path="res://levels/template/DeathFloor.tscn" type="PackedScene" id=6]
-[ext_resource path="res://levels/template/FinishObject.tscn" type="PackedScene" id=7]
-[ext_resource path="res://music/cloud.ogg" type="AudioStream" id=8]
+[ext_resource path="res://levels/template/DeathFloor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/template/FinishObject.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/template/ColorChanger.tscn" type="PackedScene" id=6]
 
-[node name="Node2D" type="Node2D"]
+[node name="WorldNode2D" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.835294, 0.835294, 0.835294, 1 )
@@ -22,18 +20,10 @@ position = Vector2( 719.67, 219.961 )
 
 [node name="Platform" parent="." instance=ExtResource( 3 )]
 
-[node name="SideBorder" parent="." instance=ExtResource( 4 )]
+[node name="DeathFloor" parent="." instance=ExtResource( 4 )]
 
-[node name="SideBorder2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1502.33, -32 )
+[node name="FinishObject" parent="." instance=ExtResource( 5 )]
+position = Vector2( -87.879, 219.698 )
 
-[node name="CeilingBorder" parent="." instance=ExtResource( 5 )]
-
-[node name="DeathFloor" parent="." instance=ExtResource( 6 )]
-
-[node name="FinishObject" parent="." instance=ExtResource( 7 )]
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-autoplay = true
-mix_target = 2
+[node name="ColorChanger" parent="." instance=ExtResource( 6 )]
+position = Vector2( 269.104, 201.828 )
