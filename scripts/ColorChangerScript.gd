@@ -7,7 +7,7 @@ var blue = Color(0,0,1,1)
 var yellow = Color(1,1,0,1)
 
 #sets sprite texture color to be certain color on launch
-func change_color(color):
+func set_color(color):
 	get_node("ColorChangerSprite").set_self_modulate(color)
 
 #if the player touches this, then change player color to its color

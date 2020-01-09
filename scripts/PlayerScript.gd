@@ -10,7 +10,7 @@ export(NodePath) var player_node_path
 const UP = Vector2(0, -1)
 
 #constants for things like movement speed, gravity, jump height, etc.
-const SPEED = 500
+const SPEED = 700
 const GRAVITY = 22
 const JUMP_HEIGHT = -700
 
@@ -66,8 +66,9 @@ func calc_gravity():
 
 	#if the player is actually on the floor and presses the jump button it will make them jump
 	if is_on_floor():
+		motion.y = 0
 		releasedJumpAlready = false
-		if Input.is_action_just_pressed("ball_jump"):
+		if Input.is_action_pressed("ball_jump"):
 			motion.y = JUMP_HEIGHT
 
 	#if player hits a ceiling, make player fall back down
@@ -75,9 +76,11 @@ func calc_gravity():
 	if is_on_ceiling():
 		motion.y = 1
 
+#function that changes color of the ball right from root actor node
+func set_color(color):
+	get_node("BallSprite").set_self_modulate(color)
 
 #function for movement of ball sprite that is updated every frame (delta)
 func _physics_process(delta):
 	_get_input()
 	calc_gravity()
-

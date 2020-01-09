@@ -6,7 +6,7 @@
 [ext_resource path="res://scripts/FinishSpriteSpin.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 38.8617
+radius = 73.947
 
 [node name="FinishObject" type="Area2D"]
 script = ExtResource( 1 )
