@@ -41,7 +41,7 @@ position = Vector2( -600, -360 )
 scale = Vector2( 5, 0.6 )
 
 [node name="Platform2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -60, 80 )
+position = Vector2( 50, 90 )
 scale = Vector2( 8.16, 0.6 )
 
 [node name="Platform3" parent="." instance=ExtResource( 5 )]
@@ -60,7 +60,7 @@ scale = Vector2( 0.6, 9 )
 position = Vector2( 1560, 370 )
 
 [node name="ColorChanger" parent="." instance=ExtResource( 7 )]
-position = Vector2( 320, -50 )
+position = Vector2( 380, -70 )
 
 [node name="ColorChanger2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 640, -20 )
+position = Vector2( 620, -20 )

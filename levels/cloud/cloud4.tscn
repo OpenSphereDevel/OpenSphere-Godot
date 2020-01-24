@@ -49,15 +49,16 @@ position = Vector2( 850.8, -230 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="Platform4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 270, 20 )
+position = Vector2( 220, 20 )
 scale = Vector2( 7, 0.6 )
 
 [node name="Platform5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 530, -320 )
-scale = Vector2( 0.6, 5 )
+position = Vector2( 460, -330 )
+rotation = 1.5708
+scale = Vector2( 4.5, 0.6 )
 
 [node name="FinishObject" parent="." instance=ExtResource( 6 )]
 position = Vector2( -260, 230 )
 
 [node name="ColorChanger" parent="." instance=ExtResource( 7 )]
-position = Vector2( 670, -240 )
+position = Vector2( 580, -280 )

@@ -8,7 +8,7 @@
 extents = Vector2( 31.9813, 31.8759 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32.0581, 32.9814 )
+extents = Vector2( 32.0511, 33.1971 )
 
 [node name="Platform" type="StaticBody2D"]
 position = Vector2( 480, 352 )

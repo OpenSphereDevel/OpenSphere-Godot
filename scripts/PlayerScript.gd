@@ -10,9 +10,9 @@ export(NodePath) var player_node_path
 const UP = Vector2(0, -1)
 
 #constants for things like movement speed, gravity, jump height, etc.
-const SPEED = 700
-const GRAVITY = 22
-const JUMP_HEIGHT = -700
+const SPEED = 800
+const GRAVITY = 26
+const JUMP_HEIGHT = -720
 
 #variable to determine if player released jump button already to stop jumping
 #turns to true so you can't do it more than once mid-air and cheat the game
